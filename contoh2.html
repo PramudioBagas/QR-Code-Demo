@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Peralatan - CB 150 kV Bay 1</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #121212;
+        color: #EAEAEA;
+    }
+
+    /* Header Banner */
+    .banner {
+        background: linear-gradient(90deg, #00b4d8, #0077b6, #023e8a);
+        padding: 25px;
+        text-align: center;
+        font-size: 1.8em;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 1px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Container utama */
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #1E1E1E;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    .title {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #00b4d8;
+        margin-bottom: 15px;
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .info p {
+        margin: 0;
+        background: #252525;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.95em;
+    }
+
+    /* Section */
+    .section-title {
+        margin-top: 25px;
+        font-size: 1.1em;
+        font-weight: 600;
+        color: #00b4d8;
+        border-bottom: 2px solid #00b4d8;
+        padding-bottom: 5px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #333;
+        font-size: 0.95em;
+    }
+
+    th {
+        background-color: #252525;
+        color: #00b4d8;
+    }
+
+    tr:hover {
+        background-color: #2a2a2a;
+    }
+
+    /* Button */
+    .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+    a.button {
+        flex: 1;
+        text-align: center;
+        padding: 12px;
+        background: #00b4d8;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    a.button:hover {
+        background: #0077b6;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+        .info {
+            grid-template-columns: 1fr;
+        }
+        .buttons {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="banner">
+    ⚡ PLN ULTG Rangkas - Data Peralatan Gardu Induk ⚡
+</div>
+
+<div class="container">
+    <div class="title">CB 150 kV Bay 1</div>
+    
+    <div class="info">
+        <p><b>ID Asset:</b> GI-RKS-CB-150-B1</p>
+        <p><b>Lokasi:</b> GI Rangkas – Bay Incoming SUTT</p>
+    </div>
+
+    <div class="section-title">Data Nameplate</div>
+    <table>
+        <tr><th>Merk</th><td>ABB</td></tr>
+        <tr><th>Tipe</th><td>HPL 145B2</td></tr>
+        <tr><th>Tahun</th><td>2012</td></tr>
+        <tr><th>Tegangan Nominal</th><td>150 kV</td></tr>
+        <tr><th>Arus Nominal</th><td>2000 A</td></tr>
+        <tr><th>Breaking Capacity</th><td>40 kA</td></tr>
+    </table>
+
+    <div class="section-title">Riwayat Pemeliharaan</div>
+    <table>
+        <tr><th>Tanggal</th><th>Kegiatan</th><th>Hasil</th></tr>
+        <tr><td>15-03-2024</td><td>Inspeksi Rutin</td><td>Lulus</td></tr>
+        <tr><td>20-09-2023</td><td>Pengujian Isolasi</td><td>500 MΩ</td></tr>
+    </table>
+
+    <div class="section-title">Jadwal Pemeliharaan Berikutnya</div>
+    <p>20-09-2024 – Tim Har-GI</p>
+
+    <div class="section-title">Dokumen</div>
+    <div class="buttons">
+        <a href="https://drive.google.com/manual_cb150kv" class="button">📄 Manual PDF</a>
+        <a href="https://drive.google.com/sop_cb150kv" class="button">⚙️ SOP Pemeliharaan</a>
+        <a href="https://forms.gle/form_pemeliharaan" class="button">📝 Input Hasil Pemeriksaan</a>
+    </div>
+</div>
+
+</body>
+</html>
