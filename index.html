@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Peralatan - CB 150 kV Bay 1</title>
@@ -16,42 +17,14 @@
 
     body {
         font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
         margin: 0;
         padding: 0;
-        background: var(--bg-gradient);
-        color: var(--text-color);
-        transition: background 0.3s, color 0.3s;
-    }
-
-    /* Light mode default variables */
-    :root {
-        --bg-gradient: linear-gradient(135deg, #f0f4f8, #d9e4f5);
-        --container-bg: white;
-        --text-color: #333;
-        --header-bg: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
-        --table-header-bg: #e0f2fe;
-        --table-header-color: #005BAC;
-        --table-hover-bg: #fff8e1;
-        --button-bg: #005BAC;
-        --button-hover-bg: #004080;
-    }
-
-    /* Dark mode variables */
-    body.dark-mode {
-        --bg-gradient: linear-gradient(135deg, #1c1c1c, #2c2c2c);
-        --container-bg: #2a2a2a;
-        --text-color: #e0e0e0;
-        --header-bg: linear-gradient(90deg, #222, #333, #444);
-        --table-header-bg: #333;
-        --table-header-color: #00b4d8;
-        --table-hover-bg: #383838;
-        --button-bg: #00b4d8;
-        --button-hover-bg: #0096c7;
     }
 
     /* Banner halaman */
     .banner {
-        background: var(--header-bg);
+        background: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
         color: white;
         text-align: center;
         padding: 20px 10px;
@@ -59,43 +32,22 @@
         font-weight: bold;
         animation: slideIn 0.8s ease-out;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        position: relative;
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.15);
-        border: none;
-        padding: 8px 12px;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer;
-        font-size: 0.9em;
-        transition: background 0.3s;
-    }
-    .toggle-btn:hover {
-        background: rgba(255,255,255,0.3);
     }
 
     /* Kontainer */
     .container {
         max-width: 600px;
-        margin: 30px auto;
-        background: var(--container-bg);
+        margin: 15px auto;
+        background: white;
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         overflow: hidden;
         animation: fadeIn 0.8s ease-in;
-        transition: background 0.3s;
     }
 
     /* Header kontainer */
     .container-header {
-        background: var(--header-bg);
+        background: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
         color: white;
         padding: 15px;
         font-size: 1.3em;
@@ -110,21 +62,41 @@
         padding: 20px;
     }
 
+    /* Foto peralatan */
+    .equipment-photo {
+        text-align: center;
+        margin-bottom: 15px;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-top: 2px;
+    }
+    .equipment-photo img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    .equipment-photo img:hover {
+        transform: scale(1.02);
+    }
+
     h1 {
         margin-bottom: 5px;
         font-size: 1.2em;
-        color: var(--table-header-color);
+        color: #005BAC;
     }
 
     p {
         margin: 5px 0;
+        color: #333;
     }
 
     .section-title {
         margin-top: 20px;
         font-weight: bold;
-        color: var(--table-header-color);
-        border-left: 4px solid var(--table-header-color);
+        color: #005BAC;
+        border-left: 4px solid #005BAC;
         padding-left: 8px;
     }
 
@@ -132,7 +104,9 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 10px;
-        background-color: transparent;
+        background-color: #f9fbfd;
+        border-radius: 8px;
+        overflow: hidden;
     }
     th, td {
         padding: 10px;
@@ -140,12 +114,12 @@
         font-size: 14px;
     }
     th {
-        background-color: var(--table-header-bg);
-        color: var(--table-header-color);
+        background-color: #e0f2fe;
+        color: #005BAC;
         text-align: left;
     }
     tr:hover {
-        background-color: var(--table-hover-bg);
+        background-color: #fff8e1;
         transition: background-color 0.3s;
     }
 
@@ -154,14 +128,15 @@
         text-align: center;
         padding: 10px;
         margin-top: 8px;
-        background-color: var(--button-bg);
+        font-weight: 500;
+        background: linear-gradient(90deg, #00b4d8, #0077b6, #023e8a);
         color: white;
         text-decoration: none;
         border-radius: 8px;
         transition: transform 0.2s, background-color 0.3s;
     }
     a.button:hover {
-        background-color: var(--button-hover-bg);
+        background-color: #004080;
         transform: scale(1.05);
     }
 </style>
@@ -170,7 +145,8 @@
 
 <div class="banner">
     ⚡ PLN ULTG Rangkas - Data Peralatan Gardu Induk ⚡
-    <button class="toggle-btn" onclick="toggleMode()">🌙/☀️</button>
+    <button class="toggle-btn" onclick="toggleMode()">☀️</button>
+
 </div>
 
 <div class="container">
@@ -178,6 +154,12 @@
         CB 150 kV Bay 1
     </div>
     <div class="container-body">
+        
+        <!-- Foto peralatan -->
+        <div class="equipment-photo">
+            <img src="CB.jpg" alt="Foto CB 150 kV">
+        </div>
+
         <p><b>ID Asset:</b> GI-RKS-CB-150-B1</p>
         <p><b>Lokasi:</b> GI Rangkas – Bay Incoming SUTT</p>
 
@@ -202,17 +184,17 @@
         <p>20-09-2024 – Tim Har-GI</p>
 
         <div class="section-title">Dokumen</div>
-        <a href="https://drive.google.com/manual_cb150kv" class="button">📄 Manual PDF</a>
-        <a href="https://drive.google.com/sop_cb150kv" class="button">⚙️ SOP Pemeliharaan</a>
-        <a href="https://forms.gle/form_pemeliharaan" class="button">📝 Input Hasil Pemeriksaan</a>
+        <a href="https://drive.google.com/manual_cb150kv" class="button">
+            <i class="fas fa-book"></i> Manual PDF
+        </a>
+        <a href="https://drive.google.com/sop_cb150kv" class="button">
+            <i class="fas fa-tools"></i> SOP Pemeliharaan
+        </a>
+        <a href="https://forms.gle/form_pemeliharaan" class="button">
+            <i class="fas fa-check-circle"></i> Input Hasil Pemeriksaan
+        </a>
     </div>
 </div>
-
-<script>
-function toggleMode() {
-    document.body.classList.toggle('dark-mode');
-}
-</script>
 
 </body>
 </html>
