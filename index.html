@@ -17,14 +17,40 @@
 
     body {
         font-family: 'Segoe UI', Arial, sans-serif;
-        background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
         margin: 0;
         padding: 0;
+        background: var(--bg-gradient);
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Ligt mode default variables*/
+    :root {
+        --bg-gradient: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+        --container-bg: white;
+        --text-color: #333;
+        --header-bg: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        --table-header-bg: #e0f2fe;
+        --table-header-color: #005BAC;
+        --table-hover-bg: #fff8e1;
+        --table-border: #e2e8f0;
+    }
+    
+    /* Dark mode variables */
+    body.dark-mode {
+        --bg-gradient: #121212;
+        --container-bg: #1E1E1E;
+        --text-color: #EAEAEA;
+        --header-bg: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
+        --table-header-bg: #252525;
+        --table-header-color: #00b4d8;
+        --table-hover-bg: #2a2a2a;
+        --table-border: #333;
     }
 
     /* Banner halaman */
     .banner {
-        background: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        background: var(--header-bg);
         color: white;
         text-align: center;
         padding: 20px 10px;
@@ -37,25 +63,46 @@
     /* Kontainer */
     .container {
         max-width: 600px;
-        margin: 12px auto;
-        background: white;
+        margin: 8px auto;
+        background: var(--container-bg);
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         overflow: hidden;
         animation: fadeIn 0.8s ease-in;
+        transition: background 0.3s;
     }
 
     /* Header kontainer */
     .container-header {
-        background: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
+        background: var(--header-bg);
         color: white;
         padding: 15px;
-        font-size: 1.3em;
+        font-size: 1.5em;
         font-weight: bold;
         text-align: center;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.15);
+        border: none;
+        padding: 6px 10px;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+    }
+    .toggle-btn:hover {
+        background: rgba(255,255,255,0.3);
     }
 
     .container-body {
@@ -84,19 +131,18 @@
     h1 {
         margin-bottom: 5px;
         font-size: 1.2em;
-        color: #005BAC;
+        color: var(--table-header-color);
     }
 
     p {
         margin: 5px 0;
-        color: #333;
     }
 
     .section-title {
         margin-top: 20px;
         font-weight: bold;
-        color: #005BAC;
-        border-left: 4px solid #005BAC;
+        color: var(--table-header-color);
+        border-left: 4px solid var(--table-header-color);
         padding-left: 8px;
     }
 
@@ -104,22 +150,22 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 10px;
-        background-color: #f9fbfd;
+        background-color: transparent;
         border-radius: 8px;
         overflow: hidden;
     }
     th, td {
         padding: 10px;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid var(--table-border);
         font-size: 14px;
     }
     th {
-        background-color: #e0f2fe;
-        color: #005BAC;
+        background-color: var(--table-header-bg);
+        color: var(--table-header-color);
         text-align: left;
     }
     tr:hover {
-        background-color: #fff8e1;
+        background-color: var(--table-hover-bg);
         transition: background-color 0.3s;
     }
 
@@ -145,13 +191,13 @@
 
 <div class="banner">
     ⚡ PLN ULTG Rangkas - Data Peralatan Gardu Induk ⚡
-    <button class="toggle-btn" onclick="toggleMode()">☀️</button>
-
 </div>
 
 <div class="container">
     <div class="container-header">
         CB 150 kV Bay 1
+        <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
+
     </div>
     <div class="container-body">
         
@@ -164,7 +210,7 @@
         <p><b>Lokasi:</b> GI Rangkas – Bay Incoming SUTT</p>
 
         <div class="section-title">Data Nameplate</div>
-        <table>
+        <table> <!--<th></th><td></td>-->
             <tr><th>Merk</th><td>ABB</td></tr>
             <tr><th>Tipe</th><td>HPL 145B2</td></tr>
             <tr><th>Tahun</th><td>2012</td></tr>
@@ -195,7 +241,21 @@
         </a>
     </div>
 </div>
+<script>
+function toggleMode() {
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    body.classList.toggle("dark-mode");
+
+    // Ubah ikon sesuai mode
+    if (body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️"; // Dark mode → tombol jadi matahari
+    } else {
+        toggleBtn.textContent = "🌙"; // Light mode → tombol jadi bulan
+    }
+}
+</script>
 
 </body>
 </html>
-
