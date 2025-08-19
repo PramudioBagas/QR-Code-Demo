@@ -34,6 +34,8 @@
         --table-header-color: #005BAC;
         --table-hover-bg: #fff8e1;
         --table-border: #e2e8f0;
+        --sub-color: #e8f5e9;
+        --sub-text-color: #1b5e20;
     }
     
     /* Dark mode variables */
@@ -46,6 +48,8 @@
         --table-header-color: #00b4d8;
         --table-hover-bg: #2a2a2a;
         --table-border: #333;
+        --sub-color: #142f06;
+        --sub-text-color: #c8e6c9;
     }
 
     /* Banner halaman */
@@ -146,6 +150,7 @@
         padding-left: 8px;
     }
 
+
     table {
         width: 100%;
         border-collapse: collapse;
@@ -167,6 +172,12 @@
     tr:hover {
         background-color: var(--table-hover-bg);
         transition: background-color 0.3s;
+    }
+
+    .sub-header {
+        background-color: var(--sub-color); 
+        color: var(--sub-text-color);            
+        text-align: center;
     }
 
     a.button {
@@ -209,7 +220,7 @@
 
 <div class="container">
     <div class="container-header">
-        PMT BAY TRAFO 2
+        TRAFO BAY TRAFO 2
         <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
 
     </div>
@@ -217,7 +228,7 @@
         
         <!-- Foto peralatan -->
         <div class="equipment-photo">
-        <img src="foto.jpeg" alt="Foto PMT">
+        <img src="foto.jpeg" alt="Foto Trafo">
         </div>
 
         <p><b>Lokasi:</b> GI Rangkasbaru - Bay Trafo 2</p>
@@ -225,26 +236,39 @@
         <p><b>Fasa:</b> R-S-T</p>
 
         <table>
-            <tr><th>TYPE DESIGNATION</th><td>GL 313 F1</td></tr>
-            <tr><th>SERIAL NUMBER</th><td>7845-20-2031006/1</td></tr>
-            <tr><th>RATED VOLTAGE</th><td>170 kV</td></tr>
-            <tr><th>RATED LIGHTNING IMP. WITHSTAND VOLTAGE</th><td>750 kV</td></tr>
-            <tr><th>RATED FREQUENCY</th><td>50 Hz</td></tr>
-            <tr><th>RATED NORMAL CURRENT</th><td>3150 A</td></tr>
-            <tr><th>RATED DURATION OF SHORT CIRCUIT</th><td>3 s</td></tr>
-            <tr><th>RATED SHORT CIRCUIT BREAKING CURRENT</th><td>40 kA</td></tr>
-            <tr><th>FIRST-POLE-TO-CLEAR FACTOR</th><td>1.5</td></tr>
-            <tr><th>RATED OUT-OF-PHASE BREAKING CURRENT</th><td>10 kA</td></tr>
-            <tr><th>RATED LINE-CHARGING BREAKING CURRENT</th><td>63 A</td></tr>
-            <tr><th>RATED SF6-GAS PRESSURE FOR INTERRUPTION Pe</th><td>0.6 MPa</td></tr>
-            <tr><th>RATED SUPPLY VOLTAGE OF CLOSING AND OPENING DEVICE</th><td>110 VDC</td></tr>
-            <tr><th>RATED SUPPLY VOLTAGE OF AUXILIARY CIRCUITS</th><td>110 VDC</td></tr>
-            <tr><th>RATED SUPLY VOLTAGE OF MOTOR</th><td>230 VAC</td></tr>
-            <tr><th>MASS OF SF6-GAS</th><td>14.1 kg</td></tr>
-            <tr><th>MASS</th><td>1384.1 kg</td></tr>
-            <tr><th>RATED OPERATING SEQUENCE</th><td>O-0.3S-CO-3min-CO</td></tr>
-            <tr><th>YEAR OF MANUFACTURE</th><td>2009</td></tr>
-            <tr><th>TEMPERATURE CLASS</th><td>-30 ...+ 40°C</td></tr>
+            <tr><th>SERIAL NUMBER</th><td>P060LEC581-F1</td></tr>
+            <tr><th>YEAR OF MANUFACTURE</th><td>2010</td></tr>
+            <tr><th>OLTC TOTAL POSITIONS</th><td>18</td></tr>
+            <tr><th>RATED POWER</th><td>42 / 60 MVA</td></tr>
+            <tr><th>SERVICE CONDITION</th><td>OUTDOOR</td></tr>
+            <tr><th>FREQUENCY</th><td>50 Hz</td></tr>
+            <tr><th>TEMPERATURE RISE</th><td>OIL 50 °C | WINDINGS 55 °C</td></tr>
+            <tr><th>COOLING</th><td>ONAN / ONAF</td></tr>
+            <tr><th>RATED POWER in MVA (ONAN/ONAF)</th><td>42/60 (HV) | 42/60 (LV) | 14/20 (TV)</td></tr>
+            <tr><th>RATED VOLTAGE IN kV</th><td>150 (HV) | 20 (LV) | 10(TV)</td></tr>
+            <tr><th>RATED CURRENT in A (ONAN/ONAF)</th><td>161.7/230.9 (HV) | 1212.4/1732.1 (LV) | 466.7√3/666.7√3 (TV)</td></tr>
+            <tr><th>CONNECTION</th><td>STAR (HV) | STAR (LV) | DELTA (TV)</td></tr>
+            <tr><th>LINE IN</th><td>1R 1S 1T (HV) | 2R 2S 2T (LV) | 3T1 3T2 (TV)</td></tr>
+            <tr><th>NEUTRAL IN</th><td>1N (HV) | 2N (LV)</td></tr>
+            <tr><th></th><th class="sub-header">RATED LIGHTNING IMPULSE WITHSTAND VOLTAGE (kV)</th></tr>
+            <tr><th>HIGH VOLTAGE</th><td>650 (LS) | 95 (NS)</td></tr>
+            <tr><th>LOW VOLTAGE</th><td>125 (LS) | 125 (NS)</td></tr>
+            <tr><th>TERTIARY VOLTAGE</th><td>75 (LS)</td></tr>
+            <tr><th></th><th class="sub-header">RATED POWER FREQUENCY WITHSTAND VOLTAGE (kV)</th></tr>
+            <tr><th>HIGH VOLTAGE</th><td>275 (LS) | 36 (NS)</td></tr>
+            <tr><th>LOW VOLTAGE</th><td>50 (LS) | 50 (NS)</td></tr>
+            <tr><th>TERTIARY VOLTAGE</th><td>28 (LS)</td></tr>
+            <tr><th colspan="2" class="sub-header">CURRENT TRANSFORMERS</th></tr>
+            <tr><th>CT01</th><td>RATED POWER 15 VA | CLASS 3 | RATIO 2000/5A | PURPOSE: MEASUREMENT</td></tr>
+            <tr><th>CT02</th><td>RATED POWER 15 VA | CLASS 3 | RATIO 300/5A | PURPOSE: MEASUREMENT</td></tr>
+            <tr><th>HV/LV S.C. CIRCUIT IMPEDANCE POSITION 8 BASE ON 60 MVA</th><td>12.5% (GUARANTEED)</td></tr>
+            <tr><th>TYPE OF OIL MINERAL OIL</th><td>UN-INHIBITED</td></tr>
+            <tr><th colspan="2" class="sub-header">APPROXIMATE WEIGHTS</th></tr>
+            <tr><th>UNTANKING</th><td>50500 kg</td></tr>
+            <tr><th>CORE AND COILS</th><td>47500 kg</td></tr>
+            <tr><th>TANK</th><td>12700 kg</td></tr>
+            <tr><th>OIL</th><td>15500 kg</td></tr>
+            <tr><th>TOTAL</th><td>82500 kg</td></tr>
         </table>
 
         <!--<p><b>Status:</b> <span class="status-maintenance"><i class="fas fa-tools"></i> Dalam Pemeliharaan</span></p>
