@@ -199,6 +199,35 @@
         font-weight: bold;
     }
 
+            .nav-arrows {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        background: var(--container-bg);
+        border-bottom: 1px solid var(--table-border);
+    }
+
+    .nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 10px;
+        background: linear-gradient(135deg, #FF9800, #F44336);
+        color: white;
+        border-radius: 14px;
+        font-size: 0.8em;
+        font-weight: 500;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-1px) scale(1.02);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
 </style>
 </head>
 <body>
@@ -214,6 +243,16 @@
         <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
 
     </div>
+
+    <div class="nav-arrows">
+        <a href="../NGR/ngr.html" class="nav-btn">
+            <i class="fas fa-arrow-left"></i> NGR
+        </a>
+        <a href="../TRAFO/trafo.html" class="nav-btn">
+            TRAFO <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
     <div class="container-body">
         
         <!-- Foto peralatan -->

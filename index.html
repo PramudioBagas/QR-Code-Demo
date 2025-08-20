@@ -1,260 +1,228 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Peralatan - CB 150 kV Bay 1</title>
+<title>Homepage - PLN ULTG Rangkas</title>
 <style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0; padding: 0;
+        background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+        color: #333;
+    }
+    /* Banner atas */
+    .banner {
+        background: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        color: white;
+        text-align: center;
+        padding: 25px 10px;
+        font-size: 1.8em;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        position: relative;
+    }
+    .banner img {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 50px;
+    }
+
+    /* Container utama */
+    .container {
+        max-width: 700px;
+        margin: 20px auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        animation: fadeIn 0.8s ease-in;
+    }
+
+    /* Intro / pembuka */
+    .intro {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .intro h2 {
+        margin-bottom: 5px;
+        color: #005BAC;
+    }
+    .intro p {
+        color: #555;
+        font-size: 0.95em;
+    }
+
+    /* Slot foto */
+    .photo-slot {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 15px 0 25px 0;
+    }
+    .photo-slot img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    .photo-slot img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Navigasi GI */
+    details {
+        margin: 8px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: #f9f9f9;
+    }
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+        color: #005BAC;
+    }
+    .button {
+        display: block;
+        padding: 8px;
+        margin: 5px 0;
+        background: linear-gradient(90deg, #007BFF, #00B4D8);
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.85em;
+        transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Jam real-time */
+    .clock {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 0.8em;
+        color: #777;
+    }
+
+    /* Animasi */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-        from { transform: translateX(-100%); }
-        to { transform: translateX(0); }
-    }
-
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: var(--bg-gradient);
-        color: var(--text-color);
-        transition: background 0.3s, color 0.3s;
-    }
-
-    /* Ligt mode default variables*/
-    :root {
-        --bg-gradient: linear-gradient(135deg, #f0f4f8, #d9e4f5);
-        --container-bg: white;
-        --text-color: #333;
-        --header-bg: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
-        --table-header-bg: #e0f2fe;
-        --table-header-color: #005BAC;
-        --table-hover-bg: #fff8e1;
-        --table-border: #e2e8f0;
-    }
-    
-    /* Dark mode variables */
-    body.dark-mode {
-        --bg-gradient: #121212;
-        --container-bg: #1E1E1E;
-        --text-color: #EAEAEA;
-        --header-bg: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
-        --table-header-bg: #252525;
-        --table-header-color: #00b4d8;
-        --table-hover-bg: #2a2a2a;
-        --table-border: #333;
-    }
-
-    /* Banner halaman */
-    .banner {
-        background: var(--header-bg);
-        color: white;
-        text-align: center;
-        padding: 20px 10px;
-        font-size: 1.5em;
-        font-weight: bold;
-        animation: slideIn 0.8s ease-out;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    /* Kontainer */
-    .container {
-        max-width: 600px;
-        margin: 8px auto;
-        background: var(--container-bg);
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        overflow: hidden;
-        animation: fadeIn 0.8s ease-in;
-        transition: background 0.3s;
-    }
-
-    /* Header kontainer */
-    .container-header {
-        background: var(--header-bg);
-        color: white;
-        padding: 15px;
-        font-size: 1.5em;
-        font-weight: bold;
-        text-align: center;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
-        position: relative;
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.15);
-        border: none;
-        padding: 6px 10px;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer;
-        font-size: 1.1em;
-        transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
-    }
-    .toggle-btn:hover {
-        background: rgba(255,255,255,0.3);
-    }
-
-    .container-body {
-        padding: 20px;
-    }
-
-    /* Foto peralatan */
-    .equipment-photo {
-        text-align: center;
-        margin-bottom: 15px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 2px;
-    }
-    .equipment-photo img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        transition: transform 0.3s;
-    }
-    .equipment-photo img:hover {
-        transform: scale(1.02);
-    }
-
-    h1 {
-        margin-bottom: 5px;
-        font-size: 1.2em;
-        color: var(--table-header-color);
-    }
-
-    p {
-        margin: 5px 0;
-    }
-
-    .section-title {
-        margin-top: 20px;
-        font-weight: bold;
-        color: var(--table-header-color);
-        border-left: 4px solid var(--table-header-color);
-        padding-left: 8px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-        background-color: transparent;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    th, td {
-        padding: 10px;
-        border-bottom: 1px solid var(--table-border);
-        font-size: 14px;
-    }
-    th {
-        background-color: var(--table-header-bg);
-        color: var(--table-header-color);
-        text-align: left;
-    }
-    tr:hover {
-        background-color: var(--table-hover-bg);
-        transition: background-color 0.3s;
-    }
-
-    a.button {
-        display: block;
-        text-align: center;
-        padding: 10px;
-        margin-top: 8px;
-        font-weight: 500;
-        background: linear-gradient(90deg, #00b4d8, #0077b6, #023e8a);
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: transform 0.2s, background-color 0.3s;
-    }
-    a.button:hover {
-        background-color: #004080;
-        transform: scale(1.05);
     }
 </style>
 </head>
 <body>
 
 <div class="banner">
-    ⚡ PLN ULTG Rangkas - Data Peralatan Gardu Induk ⚡
+    <img src="pln.png" alt="Logo PLN">
+    ⚡ PLN ULTG Rangkas - Homepage ⚡
 </div>
 
 <div class="container">
-    <div class="container-header">
-        CB 150 kV Bay 1
-        <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
 
+    <!-- Intro -->
+    <div class="intro">
+        <h2>Selamat Datang</h2>
+        <p>Halaman data peralatan Gardu Induk ULTG Rangkas.  
+        Pilih GI, Bay, dan peralatan untuk melihat detail data nameplate dan riwayat pemeliharaan.</p>
     </div>
-    <div class="container-body">
-        
-        <!-- Foto peralatan -->
-        <div class="equipment-photo">
-            <img src="CB.jpg" alt="Foto CB 150 kV">
-        </div>
 
-        <p><b>ID Asset:</b> GI-RKS-CB-150-B1</p>
-        <p><b>Lokasi:</b> GI Rangkas – Bay Incoming SUTT</p>
-
-        <div class="section-title">Data Nameplate</div>
-        <table> <!--<th></th><td></td>-->
-            <tr><th>Merk</th><td>ABB</td></tr>
-            <tr><th>Tipe</th><td>HPL 145B2</td></tr>
-            <tr><th>Tahun</th><td>2012</td></tr>
-            <tr><th>Tegangan Nominal</th><td>150 kV</td></tr>
-            <tr><th>Arus Nominal</th><td>2000 A</td></tr>
-            <tr><th>Breaking Capacity</th><td>40 kA</td></tr>
-        </table>
-
-        <div class="section-title">Riwayat Pemeliharaan</div>
-        <table>
-            <tr><th>Tanggal</th><th>Kegiatan</th><th>Hasil</th></tr>
-            <tr><td>15-03-2024</td><td>Inspeksi Rutin</td><td>Lulus</td></tr>
-            <tr><td>20-09-2023</td><td>Pengujian Isolasi</td><td>500 MΩ</td></tr>
-        </table>
-
-        <div class="section-title">Jadwal Pemeliharaan Berikutnya</div>
-        <p>20-09-2024 – Tim Har-GI</p>
-
-        <div class="section-title">Dokumen</div>
-        <a href="https://drive.google.com/manual_cb150kv" class="button">
-            <i class="fas fa-book"></i> Manual PDF
-        </a>
-        <a href="https://drive.google.com/sop_cb150kv" class="button">
-            <i class="fas fa-tools"></i> SOP Pemeliharaan
-        </a>
-        <a href="https://forms.gle/form_pemeliharaan" class="button">
-            <i class="fas fa-check-circle"></i> Input Hasil Pemeriksaan
-        </a>
+    <!-- Slot foto -->
+    <div class="photo-slot">
+        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto2.jpg" alt="Foto 2">
+        <img src="foto3.jpg" alt="Foto 3">
     </div>
+
+    <!-- Navigasi GI -->
+    <h3>Pilih Gardu Induk</h3>
+    <details>
+        <summary>GI RANGKASBARU</summary>
+        <details>
+            <summary>BAY TRAFO 2</summary>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/CT/ct.html" class="button">CT</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/DS/ds.html" class="button">DS</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/LA/la.html" class="button">LA</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/NGR/ngr.html" class="button">NGR</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/PMT/pmt.html" class="button">PMT</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/TRAFO/trafo.html" class="button">TRAFO</a>
+        </details>
+        <details>
+            <summary>BAY TRAFO 1</summary>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_1/CT/ct.html" class="button">CT</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_1/DS/ds.html" class="button">DS</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_1/LA/la.html" class="button">LA</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_1/NGR/ngr.html" class="button">NGR</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_1/PMT/pmt.html" class="button">PMT</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_1/TRAFO/trafo.html" class="button">TRAFO</a>
+        </details>
+        <!-- Tambahkan bay lain seperti BUNAR, BUSBAR, dll -->
+    </details>
+
+    <details>
+        <summary>GI BAYAH</summary>
+        <a href="GI_BAYAH/BAY_1/CT/ct.html" class="button">Contoh CT</a>
+    </details>
+
+    <details>
+        <summary>GI KOPO</summary>
+        <!-- isi bay & alat -->
+    </details>
+
+    <details>
+        <summary>GI MALINGPING</summary>
+        <!-- isi bay & alat -->
+    </details>
+
+    <details>
+        <summary>GI MENES</summary>
+        <!-- isi bay & alat -->
+    </details>
+
+    <details>
+        <summary>GI SAKETI</summary>
+        <!-- isi bay & alat -->
+    </details>
+
+    <details>
+        <summary>GI LABUAN</summary>
+        <!-- isi bay & alat -->
+    </details>
+
+    <!-- Jam -->
+    <div class="clock" id="clock"></div>
+
 </div>
+
+<footer>
+    © 2025 PLN ULTG Rangkas | Sistem Informasi Data Peralatan
+</footer>
+
 <script>
-function toggleMode() {
-    const body = document.body;
-    const toggleBtn = document.getElementById("themeToggle");
-
-    body.classList.toggle("dark-mode");
-
-    // Ubah ikon sesuai mode
-    if (body.classList.contains("dark-mode")) {
-        toggleBtn.textContent = "☀️"; // Dark mode → tombol jadi matahari
-    } else {
-        toggleBtn.textContent = "🌙"; // Light mode → tombol jadi bulan
-    }
+function updateClock() {
+    const now = new Date();
+    const clock = document.getElementById("clock");
+    clock.textContent = "⏰ " + now.toLocaleString("id-ID", { dateStyle: "full", timeStyle: "medium" });
 }
+setInterval(updateClock, 1000);
+updateClock();
 </script>
 
 </body>
