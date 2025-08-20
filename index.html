@@ -4,126 +4,171 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Homepage - PLN ULTG Rangkas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
     body {
-        font-family: 'Segoe UI', Arial, sans-serif;
+        font-family: 'Poppins', sans-serif;
         margin: 0; padding: 0;
-        background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+        background: linear-gradient(135deg, #e6f0ff, #f9fbfd);
         color: #333;
     }
+
     /* Banner atas */
     .banner {
-        background: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        background: linear-gradient(90deg, #005BAC, #007BFF, #00C853);
         color: white;
         text-align: center;
-        padding: 25px 10px;
-        font-size: 1.8em;
-        font-weight: bold;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        padding: 30px 15px;
+        font-size: 2em;
+        font-weight: 700;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.25);
         position: relative;
     }
     .banner img {
         position: absolute;
-        left: 15px;
+        left: 20px;
         top: 50%;
         transform: translateY(-50%);
-        height: 50px;
+        height: 55px;
     }
 
     /* Container utama */
     .container {
-        max-width: 700px;
-        margin: 20px auto;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        padding: 20px;
-        animation: fadeIn 0.8s ease-in;
+        max-width: 800px;
+        margin: 30px auto;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        overflow: hidden;
+        animation: fadeIn 0.9s ease-in-out;
     }
 
-    /* Intro / pembuka */
+    .container-header {
+        background: linear-gradient(90deg, #005BAC, #007BFF, #00C853);
+        color: white;
+        padding: 20px;
+        font-size: 1.6em;
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 3px solid rgba(255,255,255,0.3);
+    }
+
+    /* Intro */
     .intro {
         text-align: center;
-        margin-bottom: 20px;
-    }
-    .intro h2 {
-        margin-bottom: 5px;
-        color: #005BAC;
-    }
-    .intro p {
-        color: #555;
-        font-size: 0.95em;
+        margin: 20px;
+        padding: 25px 20px;
+        background: linear-gradient(135deg, #f9fbff, #f5faff);
+        border-radius: 15px;
+        animation: fadeIn 1s ease-in-out;
     }
 
-    /* Slot foto */
-    .photo-slot {
+    .intro h2 {
+        margin-bottom: 8px;
+        color: #005BAC;
+        font-size: 1.6em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        position: relative;
+    }
+
+    .intro h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #007BFF, #00C853);
+        margin: 8px auto 0 auto;
+        border-radius: 2px;
+    }
+
+    .equipment-photo {
         display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
         justify-content: center;
-        margin: 15px 0 25px 0;
+        align-items: center;
     }
-    .photo-slot img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
+
+    .equipment-photo img {
+        width: 210px;   
+        height: auto;
         border-radius: 12px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         transition: transform 0.3s;
-    }
-    .photo-slot img:hover {
-        transform: scale(1.05);
     }
 
     /* Navigasi GI */
-    details {
-        margin: 8px 0;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 10px;
-        background: #f9f9f9;
-    }
-    summary {
-        cursor: pointer;
-        font-weight: bold;
+    h3 {
+        text-align: center;
         color: #005BAC;
+        margin-bottom: 10px;
     }
+
+    details {
+        margin: 12px 20px;         
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 12px 16px;        
+        background: linear-gradient(90deg, #023e8a,#0077b6, #0498df);
+        transition: all 0.3s ease;
+    }
+
+    summary {
+        color: white; /* default (tertutup) */
+        cursor: pointer;
+        font-weight: 600;
+        outline: none;
+        transition: color 0.3s ease;
+    }
+
+    details[open] {
+        background: #fdfdfd; /* saat terbuka kotak jadi putih */
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    details[open] > summary {
+        color: #005BAC; /* teks biru saat terbuka */
+    }
+
+
     .button {
         display: block;
-        padding: 8px;
-        margin: 5px 0;
+        padding: 10px;
+        margin: 6px 0;
         background: linear-gradient(90deg, #007BFF, #00B4D8);
         color: white;
         text-align: center;
-        border-radius: 8px;
+        border-radius: 10px;
         text-decoration: none;
-        font-size: 0.85em;
-        transition: transform 0.2s, box-shadow 0.3s;
+        font-size: 0.9em;
+        font-weight: 800;
+        font:bold;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.2);
     }
 
-    /* Jam real-time */
+    /* Jam */
     .clock {
         text-align: center;
-        margin-top: 10px;
-        font-size: 0.9em;
-        color: #555;
+        margin: 20px 0 10px 0;
+        font-size: 1em;
+        font-weight: 500;
+        color: #444;
     }
 
     /* Footer */
     footer {
         text-align: center;
         margin: 20px 0;
-        font-size: 0.8em;
+        font-size: 0.85em;
         color: #777;
     }
 
     /* Animasi */
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
+        from { opacity: 0; transform: translateY(15px); }
         to { opacity: 1; transform: translateY(0); }
     }
 </style>
@@ -131,24 +176,24 @@
 <body>
 
 <div class="banner">
-    <img src="pln.png" alt="Logo PLN">
-    ⚡ PLN ULTG Rangkas - Homepage ⚡
+    PLN ULTG Rangkas - Homepage
 </div>
 
 <div class="container">
+    <div class="container-header">
+        SELAMAT DATANG
+    </div>
 
     <!-- Intro -->
     <div class="intro">
-        <h2>Selamat Datang</h2>
-        <p>Halaman data peralatan Gardu Induk ULTG Rangkas.  
+        <h2>Sistem Informasi Peralatan</h2>
+        <p>Halaman data peralatan Gardu Induk ULTG Rangkas.<br>
         Pilih GI, Bay, dan peralatan untuk melihat detail data nameplate dan riwayat pemeliharaan.</p>
     </div>
 
-    <!-- Slot foto -->
-    <div class="photo-slot">
-        <img src="foto1.jpg" alt="Foto 1">
-        <img src="foto2.jpg" alt="Foto 2">
-        <img src="foto3.jpg" alt="Foto 3">
+    <!-- Foto slot -->
+    <div class="equipment-photo">
+        <img src="pln.png" alt="Foto 1">
     </div>
 
     <!-- Navigasi GI -->
@@ -157,9 +202,14 @@
         <summary>GI RANGKASBARU</summary>
         <details>
             <summary>BAY TRAFO 2</summary>
-            <a href="GI_RANGKASBARU/BAY_TRAFO_2/CT/ct.html" class="button">CT</a>
-            <a href="GI_RANGKASBARU/BAY_TRAFO_2/DS/ds.html" class="button">DS</a>
-            <a href="GI_RANGKASBARU/BAY_TRAFO_2/LA/la.html" class="button">LA</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/CT/R/ct.html" class="button">CT FASA R</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/CT/S/ct.html" class="button">CT FASA S</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/CT/T/ct.html" class="button">CT FASA T</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/DS/REL_1/ds.html" class="button">DS REL 1</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/DS/REL_2/ds.html" class="button">DS REL 2</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/LA/R/la.html" class="button">LA FASA R</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/LA/S/la.html" class="button">LA FASA S</a>
+            <a href="GI_RANGKASBARU/BAY_TRAFO_2/LA/T/la.html" class="button">LA FASA T</a>
             <a href="GI_RANGKASBARU/BAY_TRAFO_2/NGR/ngr.html" class="button">NGR</a>
             <a href="GI_RANGKASBARU/BAY_TRAFO_2/PMT/pmt.html" class="button">PMT</a>
             <a href="GI_RANGKASBARU/BAY_TRAFO_2/TRAFO/trafo.html" class="button">TRAFO</a>
@@ -173,7 +223,6 @@
             <a href="GI_RANGKASBARU/BAY_TRAFO_1/PMT/pmt.html" class="button">PMT</a>
             <a href="GI_RANGKASBARU/BAY_TRAFO_1/TRAFO/trafo.html" class="button">TRAFO</a>
         </details>
-        <!-- Tambahkan bay lain seperti BUNAR, BUSBAR, dll -->
     </details>
 
     <details>
@@ -181,34 +230,14 @@
         <a href="GI_BAYAH/BAY_1/CT/ct.html" class="button">Contoh CT</a>
     </details>
 
-    <details>
-        <summary>GI KOPO</summary>
-        <!-- isi bay & alat -->
-    </details>
-
-    <details>
-        <summary>GI MALINGPING</summary>
-        <!-- isi bay & alat -->
-    </details>
-
-    <details>
-        <summary>GI MENES</summary>
-        <!-- isi bay & alat -->
-    </details>
-
-    <details>
-        <summary>GI SAKETI</summary>
-        <!-- isi bay & alat -->
-    </details>
-
-    <details>
-        <summary>GI LABUAN</summary>
-        <!-- isi bay & alat -->
-    </details>
+    <details><summary>GI KOPO</summary></details>
+    <details><summary>GI MALINGPING</summary></details>
+    <details><summary>GI MENES</summary></details>
+    <details><summary>GI SAKETI</summary></details>
+    <details><summary>GIS LABUAN</summary></details>
 
     <!-- Jam -->
     <div class="clock" id="clock"></div>
-
 </div>
 
 <footer>
