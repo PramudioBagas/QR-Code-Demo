@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Peralatan - DS REL 1 Bay TRAFO 2</title>
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: var(--bg-gradient);
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Ligt mode default variables*/
+    :root {
+        --bg-gradient: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+        --container-bg: white;
+        --text-color: #333;
+        --header-bg: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        --table-header-bg: #e0f2fe;
+        --table-header-color: #005BAC;
+        --table-hover-bg: #fff8e1;
+        --table-border: #e2e8f0;
+        --sub-color: #e8f5e9;
+        --sub-text-color: #1b5e20;
+    }
+    
+    /* Dark mode variables */
+    body.dark-mode {
+        --bg-gradient: #121212;
+        --container-bg: #1E1E1E;
+        --text-color: #EAEAEA;
+        --header-bg: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
+        --table-header-bg: #252525;
+        --table-header-color: #00b4d8;
+        --table-hover-bg: #2a2a2a;
+        --table-border: #333;
+        --sub-color: #142f06;
+        --sub-text-color: #c8e6c9;
+    }
+
+    /* Banner halaman */
+    .banner {
+        background: var(--header-bg);
+        color: white;
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 1.5em;
+        font-weight: bold;
+        animation: slideIn 0.8s ease-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Kontainer */
+    .container {
+        max-width: 600px;
+        margin: 8px auto;
+        background: var(--container-bg);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        animation: fadeIn 0.8s ease-in;
+        transition: background 0.3s;
+    }
+
+    /* Header kontainer */
+    .container-header {
+        background: var(--header-bg);
+        color: white;
+        padding: 15px;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.15);
+        border: none;
+        padding: 6px 10px;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+    }
+    .toggle-btn:hover {
+        background: rgba(255,255,255,0.3);
+    }
+
+    .container-body {
+        padding: 20px;
+    }
+
+    /* Foto peralatan */
+    .equipment-photo {
+        text-align: center;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+    .equipment-photo img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    .equipment-photo img:hover {
+        transform: scale(1.02);
+    }
+
+    h1 {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        color: var(--table-header-color);
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    .section-title {
+        margin-top: 20px;
+        font-weight: bold;
+        color: var(--table-header-color);
+        border-left: 4px solid var(--table-header-color);
+        padding-left: 8px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background-color: transparent;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid var(--table-border);
+        font-size: 14px;
+    }
+    th {
+        background-color: var(--table-header-bg);
+        color: var(--table-header-color);
+        text-align: left;
+    }
+    tr:hover {
+        background-color: var(--table-hover-bg);
+        transition: background-color 0.3s;
+    }
+
+    /* Subsection header warna berbeda */
+    .sub-header {
+        background-color: var(--sub-color); 
+        color: var(--sub-text-color);            
+        font-weight: bold;
+    }
+
+    a.button {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        margin-top: 8px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #00b4d8, #0077b6, #023e8a);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+    a.button:hover {
+        background-color: #004080;
+        transform: scale(1.05);
+    }
+
+    .status-normal {
+        color: #2ecc71; /* Hijau */
+        font-weight: bold;
+    }
+    .status-maintenance {
+        color: #f1c40f; /* Kuning */
+        font-weight: bold;
+    }
+    .status-fault {
+        color: #e74c3c; /* Merah */
+        font-weight: bold;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="banner">
+    PLN ULTG Rangkas - Data Peralatan Gardu Induk
+</div>
+
+<div class="container">
+    <div class="container-header">
+        <img src="../../../../pln.png" alt="Logo PLN" style="height:50px; vertical-align:middle; margin-right:4px;">
+        DS REL 1 BAY TRAFO 2
+        <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
+
+    </div>
+    <div class="container-body">
+        
+        <!-- Foto peralatan -->
+        <div class="equipment-photo">
+        <img src="foto.jpeg" alt="Foto DS">
+        </div>
+
+        <p><b>Lokasi:</b> GI Rangkasbaru - Bay Trafo 2</p>
+        <p><b>Tanggal Operasi:</b> 31 Okt 2011</p>
+        <p><b>Fasa:</b> R-S-T</p>
+
+        <div class="section-title">Data Nameplate</div>
+        <table>
+            <tr><th>SERIAL NO</th><td>A31398</td></tr>
+            <tr><th>STANDARD</th><td>IEC 62271-102</td></tr>
+            <tr><th>YEAR/MONTH</th><td>2009-03</td></tr>
+            <tr><th>DISCONNECTOR TYPE</th><td>S2DA</td></tr>
+            <tr><th class="sub-header">Ur | Ir | fr</th><td>170 kV | 1250 A | 50 Hz</td></tr>
+            <tr><th class="sub-header">Up | Ik | tk</th><td>750 kV | 40 kA | 1 s</td></tr>
+            <tr><th class="sub-header">Us | Ip | Er</th><td>- kV | 100 kA | -</td></tr>
+            <tr><th class="sub-header">Ud | Mr</th><td>325 kV | M2</td></tr>
+            <tr><th class="sub-header">m | F</th><td>- kg | 800/250/1000 N</td></tr>
+            <tr><th>Operating Mech. Type</th><td>CMM</td></tr>
+            <tr><th class="sub-header">Ua | fa | Ia</th><td>110 V | - Hz | 0.05 A</td></tr>
+            <tr><th class="sub-header">Um | fm | Im</th><td>400 V | 50 Hz | 1.00 A</td></tr>
+            <tr><th class="sub-header">Uh | fh | Ih</th><td>230 V | 50 Hz | 0.15 A</td></tr>
+            <tr><th class="sub-header">m</th><td>55 kg</td></tr>
+        </table>
+
+
+        <!--<p><b>Status:</b> <span class="status-maintenance"><i class="fas fa-tools"></i> Dalam Pemeliharaan</span></p>
+        <p><b>Status:</b> <span class="status-fault"><i class="fas fa-exclamation-triangle"></i> Gangguan</span></p>-->
+
+        <div class="section-title">Status Peralatan</div>
+        <p><b>Status:</b> 
+            <span class="status-normal"><i class="fas fa-check-circle"></i> Normal</span>
+        </p>
+
+
+        <div class="section-title">Dokumen</div>
+        <a href="manual.pdf" class="button">
+            <i class="fas fa-book"></i> Manual PDF
+        </a>
+        <a href="plate.jpeg" class="button">
+            <i class="fas fa-tools"></i> Foto Nameplate
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/16caD5gpEkRvSeS8xLM15cz7XW9QMX5NiEl9vejvdR6s/edit?gid=1115820824#gid=1115820824" class="button">
+            <i class="fas fa-check-circle"></i> Riwayat Pemeliharaan Bay
+        </a>
+    </div>
+</div>
+<script>
+function toggleMode() {
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    body.classList.toggle("dark-mode");
+
+    // Ubah ikon sesuai mode
+    if (body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️"; // Dark mode → tombol jadi matahari
+    } else {
+        toggleBtn.textContent = "🌙"; // Light mode → tombol jadi bulan
+    }
+}
+</script>
+
+</body>
+</html>
