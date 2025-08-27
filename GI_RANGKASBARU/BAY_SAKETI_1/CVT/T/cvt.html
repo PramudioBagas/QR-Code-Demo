@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Peralatan - CVT FASA T Bay SAKETI 1</title>
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: var(--bg-gradient);
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Ligt mode default variables*/
+    :root {
+        --bg-gradient: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+        --container-bg: white;
+        --text-color: #333;
+        --header-bg: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        --table-header-bg: #e0f2fe;
+        --table-header-color: #005BAC;
+        --table-hover-bg: #fff8e1;
+        --table-border: #e2e8f0;
+        --sub-color: #e8f5e9;
+        --sub-text-color: #1b5e20;
+    }
+    
+    /* Dark mode variables */
+    body.dark-mode {
+        --bg-gradient: #121212;
+        --container-bg: #1E1E1E;
+        --text-color: #EAEAEA;
+        --header-bg: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
+        --table-header-bg: #252525;
+        --table-header-color: #00b4d8;
+        --table-hover-bg: #2a2a2a;
+        --table-border: #333;
+        --sub-color: #142f06;
+        --sub-text-color: #c8e6c9;
+    }
+
+    /* Banner halaman */
+    .banner {
+        background: var(--header-bg);
+        color: white;
+        text-align: center;
+        padding: 16px 10px;
+        font-size: 1.4em;
+        font-weight: bold;
+        animation: slideIn 0.8s ease-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Kontainer */
+    .container {
+        max-width: 600px;
+        margin: 8px auto;
+        background: var(--container-bg);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        animation: fadeIn 0.8s ease-in;
+        transition: background 0.3s;
+    }
+
+    /* Header kontainer */
+    .container-header {
+        background: var(--header-bg);
+        color: white;
+        padding: 5px;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align: center;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.15);
+        border: none;
+        padding: 5px 7px;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+    }
+    .toggle-btn:hover {
+        background: rgba(255,255,255,0.3);
+    }
+
+    .container-body {
+        padding: 20px;
+    }
+
+    /* Foto peralatan */
+    .equipment-photo {
+        text-align: center;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+    .equipment-photo img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    .equipment-photo img:hover {
+        transform: scale(1.02);
+    }
+
+    h1 {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        color: var(--table-header-color);
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    .section-title {
+        margin-top: 20px;
+        font-weight: bold;
+        color: var(--table-header-color);
+        border-left: 4px solid var(--table-header-color);
+        padding-left: 8px;
+    }
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background-color: transparent;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid var(--table-border);
+        font-size: 12px;
+    }
+    th {
+        background-color: var(--table-header-bg);
+        color: var(--table-header-color);
+        text-align: left;
+    }
+    tr:hover {
+        background-color: var(--table-hover-bg);
+        transition: background-color 0.3s;
+    }
+
+    .sub-header {
+        background-color: var(--sub-color); 
+        color: var(--sub-text-color);            
+        text-align: center;
+    }
+
+    a.button {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        margin-top: 8px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #00b4d8, #0077b6, #023e8a);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+    a.button:hover {
+        background-color: #004080;
+        transform: scale(1.05);
+    }
+
+    .status-normal {
+        color: #2ecc71; /* Hijau */
+        font-weight: bold;
+    }
+    .status-maintenance {
+        color: #f1c40f; /* Kuning */
+        font-weight: bold;
+    }
+    .status-fault {
+        color: #e74c3c; /* Merah */
+        font-weight: bold;
+    }
+
+    .nav-arrows {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        background: var(--container-bg);
+        border-bottom: 1px solid var(--table-border);
+    }
+
+    .nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 10px;
+        background: linear-gradient(135deg, #FF9800, #F44336);
+        color: white;
+        border-radius: 14px;
+        font-size: 0.8em;
+        font-weight: 500;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-1px) scale(1.02);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+</style>
+</head>
+<body>
+
+<div class="banner">
+    PLN ULTG Rangkas - Data Peralatan Gardu Induk
+</div>
+
+<div class="container">
+    <div class="container-header">
+        <img src="../../../../pln.png" alt="Logo PLN" style="height:40px; vertical-align:middle; margin-right:4px;">
+        CAPACITIVE VOLTAGE TRANSFORMER
+        <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
+
+    </div>
+
+    <div class="nav-arrows">
+        <a href="../S/cvt.html" class="nav-btn">
+            <i class="fas fa-arrow-left"></i> CVT_S
+        </a>
+        <a href="../../DS/LINE/ds.html" class="nav-btn">
+            DS_LINE <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="container-body">
+        
+        <!-- Foto peralatan -->
+        <div class="equipment-photo">
+        <img src="foto.jpeg" alt="Foto DS">
+        </div>
+
+        <p><b>Lokasi:</b> GI Rangkasbaru - Bay Saketi 1</p>
+        <p><b>Tanggal Operasi:</b> 31 Okt 2011</p>
+        <p><b>Fasa:</b> T</p>
+
+        <div class="section-title">Data Nameplate</div>
+        <table>
+            <tr><th>TEGANGAN OPERASIONAL</th><td>150 kV</td></tr>
+            <tr><th>TEGANGAN NOMINAL</th><td>170 kV</td></tr>
+            <tr><th>MERK</th><td>AREVA</td></tr>
+            <tr><th>TYPE</th><td>OTCF - 170 II</td></tr>
+            <tr><th>JENIS</th><td>KAPASITIP</td></tr>
+            <tr><th>STANDARD</th><td>IEC 186</td></tr>
+            <tr><th>NO. SERIES</th><td>693825425</td></tr>
+            <tr><th>BUATAN</th><td>U.S.A</td></tr>
+            <tr><th>TAHUN BUAT</th><td>2009</td></tr>
+            <tr><th>BIL (kV)</th><td>750</td></tr>
+            <tr><th>PFW (kV)</th><td>140</td></tr>
+            <tr><th>TEG. PRIM/SEKUN (kV)</th><td>150 / √3 - 0.1√3</td></tr>
+            <tr><th>BURDEN (VA)</th><td>100/150</td></tr>
+            <tr><th>CLASS</th><td>0.2/3P</td></tr>
+            <tr><th>KAPASITAS (pF)</th><td>6700</td></tr>
+            <tr><th>ISI MINYAK</th><td>34.1 L</td></tr>
+            <tr><th>BERAT (kg)</th><td>246</td></tr>
+        </table>
+
+
+        <!--<p><b>Status:</b> <span class="status-maintenance"><i class="fas fa-tools"></i> Dalam Pemeliharaan</span></p>
+        <p><b>Status:</b> <span class="status-fault"><i class="fas fa-exclamation-triangle"></i> Gangguan</span></p>-->
+
+        <div class="section-title">Status Peralatan</div>
+        <p><b>Status:</b> 
+            <span class="status-normal"><i class="fas fa-check-circle"></i> Normal</span>
+        </p>
+
+
+        <div class="section-title">Dokumen</div>
+        <a href="../../../../index.html" class="button">
+            <i class="fas fa-house-chimney"></i> Home
+        </a>
+        <a href="manual.pdf" class="button">
+            <i class="fas fa-book"></i> Manual PDF
+        </a>
+        <a href="plate.jpeg" class="button">
+            <i class="fas fa-tools"></i> Foto Nameplate
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/16caD5gpEkRvSeS8xLM15cz7XW9QMX5NiEl9vejvdR6s/edit?gid=1137449405#gid=1137449405" class="button">
+            <i class="fas fa-check-circle"></i> Riwayat Pemeliharaan Bay
+        </a>
+    </div>
+</div>
+<script>
+function toggleMode() {
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    body.classList.toggle("dark-mode");
+
+    // Ubah ikon sesuai mode
+    if (body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️"; // Dark mode → tombol jadi matahari
+    } else {
+        toggleBtn.textContent = "🌙"; // Light mode → tombol jadi bulan
+    }
+}
+</script>
+
+</body>
+</html>

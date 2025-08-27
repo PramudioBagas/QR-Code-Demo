@@ -169,6 +169,16 @@
         color: var(--table-header-color);
         text-align: left;
     }
+
+    th.sub-header {
+        background-color: var(--sub-color);
+        color: var(--sub-text-color);
+    }
+
+    td {
+        width: 17.5%; 
+    }
+
     tr:hover {
         background-color: var(--table-hover-bg);
         transition: background-color 0.3s;
@@ -275,40 +285,62 @@
         <p><b>Fasa:</b> R-S-T</p>
 
         <div class="section-title">Data Nameplate</div>
-        <table>
+        <table border="1">
             <tr><th>SERIAL NUMBER</th><td>P060LEC581-F1</td></tr>
-            <tr><th>YEAR OF MANUFACTURE</th><td>2010</td></tr>
-            <tr><th>OLTC TOTAL POSITIONS</th><td>18</td></tr>
-            <tr><th>RATED POWER</th><td>42 / 60 MVA</td></tr>
-            <tr><th>SERVICE CONDITION</th><td>OUTDOOR</td></tr>
-            <tr><th>FREQUENCY</th><td>50 Hz</td></tr>
-            <tr><th>TEMPERATURE RISE</th><td>OIL 50 °C | WINDINGS 55 °C</td></tr>
-            <tr><th>COOLING</th><td>ONAN / ONAF</td></tr>
-            <tr><th>RATED POWER in MVA (ONAN/ONAF)</th><td>42/60 (HV) | 42/60 (LV) | 14/20 (TV)</td></tr>
-            <tr><th>RATED VOLTAGE IN kV</th><td>150 (HV) | 20 (LV) | 10(TV)</td></tr>
-            <tr><th>RATED CURRENT in A (ONAN/ONAF)</th><td>161.7/230.9 (HV) | 1212.4/1732.1 (LV) | 466.7√3/666.7√3 (TV)</td></tr>
-            <tr><th>CONNECTION</th><td>STAR (HV) | STAR (LV) | DELTA (TV)</td></tr>
-            <tr><th>LINE IN</th><td>1R 1S 1T (HV) | 2R 2S 2T (LV) | 3T1 3T2 (TV)</td></tr>
-            <tr><th>NEUTRAL IN</th><td>1N (HV) | 2N (LV)</td></tr>
-            <tr><th></th><th class="sub-header">RATED LIGHTNING IMPULSE WITHSTAND VOLTAGE (kV)</th></tr>
-            <tr><th>HIGH VOLTAGE</th><td>650 (LS) | 95 (NS)</td></tr>
-            <tr><th>LOW VOLTAGE</th><td>125 (LS) | 125 (NS)</td></tr>
-            <tr><th>TERTIARY VOLTAGE</th><td>75 (LS)</td></tr>
-            <tr><th></th><th class="sub-header">RATED POWER FREQUENCY WITHSTAND VOLTAGE (kV)</th></tr>
-            <tr><th>HIGH VOLTAGE</th><td>275 (LS) | 36 (NS)</td></tr>
-            <tr><th>LOW VOLTAGE</th><td>50 (LS) | 50 (NS)</td></tr>
-            <tr><th>TERTIARY VOLTAGE</th><td>28 (LS)</td></tr>
-            <tr><th colspan="2" class="sub-header">CURRENT TRANSFORMERS</th></tr>
-            <tr><th>CT01</th><td>RATED POWER 15 VA | CLASS 3 | RATIO 2000/5A | PURPOSE: MEASUREMENT</td></tr>
-            <tr><th>CT02</th><td>RATED POWER 15 VA | CLASS 3 | RATIO 300/5A | PURPOSE: MEASUREMENT</td></tr>
-            <tr><th>HV/LV S.C. CIRCUIT IMPEDANCE POSITION 8 BASE ON 60 MVA</th><td>12.5% (GUARANTEED)</td></tr>
-            <tr><th>TYPE OF OIL MINERAL OIL</th><td>UN-INHIBITED</td></tr>
-            <tr><th colspan="2" class="sub-header">APPROXIMATE WEIGHTS</th></tr>
-            <tr><th>UNTANKING</th><td>50500 kg</td></tr>
-            <tr><th>CORE AND COILS</th><td>47500 kg</td></tr>
-            <tr><th>TANK</th><td>12700 kg</td></tr>
-            <tr><th>OIL</th><td>15500 kg</td></tr>
-            <tr><th>TOTAL</th><td>82500 kg</td></tr>
+            <tr><th>YEAR OF MANUFACTURE</th><td colspan="4">2010</td></tr>
+            <tr><th>OLTC TOTAL POSITIONS</th><td colspan="4">18</td></tr>
+            <tr><th>RATED POWER</th><td colspan="4">42 / 60 MVA</td></tr>
+            <tr><th>SERVICE CONDITION</th><td colspan="4">OUTDOOR</td></tr>
+            <tr><th>FREQUENCY</th><td colspan="4">50 Hz</td></tr>
+            <tr><th>TEMPERATURE RISE</th><td colspan="4">OIL 50 °C | WINDINGS 55 °C</td></tr>
+            <tr><th>COOLING</th><td colspan="4">ONAN / ONAF</td></tr>
+            <tr><th>RATED POWER in MVA (ONAN/ONAF)</th><td colspan="4">42/60 (HV) | 42/60 (LV) | 14/20 (TV)</td></tr>
+            <tr><th>RATED VOLTAGE IN kV</th><td colspan="4">150 (HV) | 20 (LV) | 10(TV)</td></tr>
+            <tr><th>RATED CURRENT in A (ONAN/ONAF)</th><td colspan="4">161.7/230.9 (HV) | 1212.4/1732.1 (LV) | 466.7√3/666.7√3 (TV)</td></tr>
+            <tr><th>CONNECTION</th><td colspan="4">STAR (HV) | STAR (LV) | DELTA (TV)</td></tr>
+            <tr><th>LINE IN</th><td colspan="4">1R 1S 1T (HV) | 2R 2S 2T (LV) | 3T1 3T2 (TV)</td></tr>
+            <tr><th>NEUTRAL IN</th><td colspan="4">1N (HV) | 2N (LV)</td></tr>
+            <tr><th></th><th class="sub-header" colspan="5">RATED LIGHTNING IMPULSE WITHSTAND VOLTAGE (kV)</th></tr>
+            <tr><th>HIGH VOLTAGE</th><td colspan="4">650 (LS) | 95 (NS)</td></tr>
+            <tr><th>LOW VOLTAGE</th><td colspan="4">125 (LS) | 125 (NS)</td></tr>
+            <tr><th>TERTIARY VOLTAGE</th><td colspan="4">75 (LS)</td></tr>
+            <tr><th></th><th class="sub-header" colspan="4">RATED POWER FREQUENCY WITHSTAND VOLTAGE (kV)</th></tr>
+            <tr><th>HIGH VOLTAGE</th><td colspan="4">275 (LS) | 36 (NS)</td></tr>
+            <tr><th>LOW VOLTAGE</th><td colspan="4">50 (LS) | 50 (NS)</td></tr>
+            <tr><th>TERTIARY VOLTAGE</th><td colspan="4">28 (LS)</td></tr>
+            <tr><th rowspan="2">POSITION OF OLTC</th><th colspan="2">HIGH VOLTAGE</th><th colspan="2">LOW VOLTAGE</th></tr>
+            <tr><th class="sub-header">TAPPING VOLTAGE (kV)</th><th class="sub-header">TAPPING CURRENT (A)</th><th class="sub-header">RATED VOLTAGE (kV)</th><th class="sub-header">RATED CURRENT (A)</th></tr>
+            <tr><td>1</td><td>165.750</td><td>146.3 (ONAN) | 209.0 (ONAF)</td><td rowspan="18">20.000</td><td rowspan="18">1212.4 (ONAN) | 1732.1 (ONAF)</td></tr>
+            <tr><td>2</td><td>163.500</td><td>148.3 (ONAN) | 211.9 (ONAF)</td></dr>
+            <tr><td>3</td><td>161.250</td><td>150.4 (ONAN) | 214.8 (ONAF)</td></dr>
+            <tr><td>4</td><td>159.000</td><td>152.5 (ONAN) | 217.9 (ONAF)</td></dr>
+            <tr><td>5</td><td>156.750</td><td>154.7 (ONAN) | 221.0 (ONAF)</td></dr>
+            <tr><td>6</td><td>154.500</td><td>156.9 (ONAN) | 225.2 (ONAF)</td></dr>
+            <tr><td>7</td><td>152.250</td><td>159.3 (ONAN) | 227.5 (ONAF)</td></dr>
+            <tr><td>8</td><td>150.000</td><td>161.7 (ONAN) | 230.9 (ONAF)</td></dr>
+            <tr><td>9</td><td>147.750</td><td>164.1 (ONAN) | 234.5 (ONAF)</td></dr>
+            <tr><td>10</td><td>145.500</td><td>166.7 (ONAN) | 238.1 (ONAF)</td></tr>
+            <tr><td>11</td><td>143.250</td><td>169.3 (ONAN) | 241.8 (ONAF)</td></tr>
+            <tr><td>12</td><td>141.000</td><td>172.0 (ONAN) | 245.7 (ONAF)</td></tr>
+            <tr><td>13</td><td>138.750</td><td>174.8 (ONAN) | 249.7 (ONAF)</td></tr>
+            <tr><td>14</td><td>136.500</td><td>177.5 (ONAN) | 253.8 (ONAF)</td></tr>
+            <tr><td>15</td><td>134.250</td><td>180.6 (ONAN) | 258.0 (ONAF)</td></tr>
+            <tr><td>16</td><td>132.000</td><td>183.7 (ONAN) | 262.4 (ONAF)</td></tr>
+            <tr><td>17</td><td>129.750</td><td>186.9 (ONAN) | 267.0 (ONAF)</td></tr>
+            <tr><td>18</td><td>127.500</td><td>190.2 (ONAN) | 271.7 (ONAF)</td></tr>
+
+            <tr><th colspan="5" class="sub-header">CURRENT TRANSFORMERS</th></tr>
+            <tr><th>DESIGNATION</th><th>RATED POWER VA</th><th>CLASS</th><th>RATIO</th><th>PURPOSE</th></tr>
+            <tr><td>CT01</td><td>15 VA</td><td>3</td><td>2000/5A</td><td>MEASUREMENT</td></tr>
+            <tr><td>CT02</td><td>15 VA</td><td>3</td><td>300/5A</td><td>MEASUREMENT</td></tr>
+            <tr><th>HV/LV S.C. CIRCUIT IMPEDANCE POSITION 8 BASE ON 60 MVA</th><td colspan="4">12.5% (GUARANTEED)</td></tr>
+            <tr><th>TYPE OF OIL MINERAL OIL</th><td colspan="4">UN-INHIBITED</td></tr>
+            <tr><th colspan="5" class="sub-header">APPROXIMATE WEIGHTS</th></tr>
+            <tr><th>UNTANKING</th><td colspan="4">50500 kg</td></tr>
+            <tr><th>CORE AND COILS</th><td colspan="4">47500 kg</td></tr>
+            <tr><th>TANK</th><td colspan="4">12700 kg</td></tr>
+            <tr><th>OIL</th><td colspan="4">15500 kg</td></tr>
+            <tr><th>TOTAL</th><td colspan="4">82500 kg</td></tr>
         </table>
 
         <!--<p><b>Status:</b> <span class="status-maintenance"><i class="fas fa-tools"></i> Dalam Pemeliharaan</span></p>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Peralatan - TRAFO Bay TRAFO 2</title>
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: var(--bg-gradient);
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Ligt mode default variables*/
+    :root {
+        --bg-gradient: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+        --container-bg: white;
+        --text-color: #333;
+        --header-bg: linear-gradient(90deg, #005BAC, #007BFF,#00C853);
+        --table-header-bg: #e0f2fe;
+        --table-header-color: #005BAC;
+        --table-hover-bg: #fff8e1;
+        --table-border: #e2e8f0;
+        --sub-color: #e8f5e9;
+        --sub-text-color: #1b5e20;
+    }
+    
+    /* Dark mode variables */
+    body.dark-mode {
+        --bg-gradient: #121212;
+        --container-bg: #1E1E1E;
+        --text-color: #EAEAEA;
+        --header-bg: linear-gradient(90deg,#005BAC, #007BFF, #00B4D8);
+        --table-header-bg: #252525;
+        --table-header-color: #00b4d8;
+        --table-hover-bg: #2a2a2a;
+        --table-border: #333;
+        --sub-color: #142f06;
+        --sub-text-color: #c8e6c9;
+    }
+
+    /* Banner halaman */
+    .banner {
+        background: var(--header-bg);
+        color: white;
+        text-align: center;
+        padding: 16px 10px;
+        font-size: 1.4em;
+        font-weight: bold;
+        animation: slideIn 0.8s ease-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Kontainer */
+    .container {
+        max-width: 600px;
+        margin: 8px auto;
+        background: var(--container-bg);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        animation: fadeIn 0.8s ease-in;
+        transition: background 0.3s;
+    }
+
+    /* Header kontainer */
+    .container-header {
+        background: var(--header-bg);
+        color: white;
+        padding: 5px;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align: center;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.15);
+        border: none;
+        padding: 5px 7px;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+    }
+    .toggle-btn:hover {
+        background: rgba(255,255,255,0.3);
+    }
+
+    .container-body {
+        padding: 20px;
+    }
+
+    /* Foto peralatan */
+    .equipment-photo {
+        text-align: center;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+    .equipment-photo img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    .equipment-photo img:hover {
+        transform: scale(1.02);
+    }
+
+    h1 {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        color: var(--table-header-color);
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    .section-title {
+        margin-top: 20px;
+        font-weight: bold;
+        color: var(--table-header-color);
+        border-left: 4px solid var(--table-header-color);
+        padding-left: 8px;
+    }
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background-color: transparent;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid var(--table-border);
+        font-size: 12px;
+    }
+    th {
+        background-color: var(--table-header-bg);
+        color: var(--table-header-color);
+    }
+
+    th.sub-header {
+        background-color: var(--sub-color);
+        color: var(--sub-text-color);
+    }
+
+    td {
+        width: 17.5%; 
+    }
+
+    tr:hover {
+        background-color: var(--table-hover-bg);
+        transition: background-color 0.3s;
+    }
+
+    .sub-header {
+        background-color: var(--sub-color); 
+        color: var(--sub-text-color);            
+        text-align: center;
+    }
+
+    a.button {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        margin-top: 8px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #00b4d8, #0077b6, #023e8a);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+    a.button:hover {
+        background-color: #004080;
+        transform: scale(1.05);
+    }
+
+    .status-normal {
+        color: #2ecc71; /* Hijau */
+        font-weight: bold;
+    }
+    .status-maintenance {
+        color: #f1c40f; /* Kuning */
+        font-weight: bold;
+    }
+    .status-fault {
+        color: #e74c3c; /* Merah */
+        font-weight: bold;
+    }
+
+    .nav-arrows {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        background: var(--container-bg);
+        border-bottom: 1px solid var(--table-border);
+    }
+
+    .nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 10px;
+        background: linear-gradient(135deg, #FF9800, #F44336);
+        color: white;
+        border-radius: 14px;
+        font-size: 0.8em;
+        font-weight: 500;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-1px) scale(1.02);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="banner">
+        PLN ULTG Rangkas - Data Peralatan Gardu Induk
+    </div>
+    
+    <div class="container">
+        <div class="container-header">
+            <img src="../../../pln.png" alt="Logo PLN" style="height:40px; vertical-align:middle; margin-right:4px;">
+            TRANSFORMER
+            <button class="toggle-btn" id="themeToggle" onclick="toggleMode()">🌙</button>
+            
+        </div>
+        
+        <div class="nav-arrows">
+            <a href="../PMT/pmt.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> PMT
+            </a>
+            <a href="../CT/R/ct.html" class="nav-btn">
+                CT_R <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="container-body">
+        
+        <!-- Foto peralatan -->
+        <div class="equipment-photo">
+        <img src="foto.jpeg" alt="Foto Trafo">
+        </div>
+
+        <p><b>Lokasi:</b> GI Rangkasbaru - Bay Trafo 1</p>
+        <p><b>Tanggal Operasi:</b> 2013</p>
+        <p><b>Fasa:</b> R-S-T</p>
+
+        <div class="section-title">Data Nameplate</div>
+        <table border="1">
+            <tr><th>TYPE</th><td colspan="4">SFZ11-60000/150</td></tr>
+            <tr><th>YEAR NUMBER OF PHASE</th><td colspan="4">3</td></tr>
+            <tr><th>RATED POWER</th><td colspan="4">60000/60000/20000 kVA</td></tr>
+            <tr><th>RATED FREQUENCY</th><td colspan="4">50 Hz</td></tr>
+            <tr><th>RATED VOLTAGE</th><td colspan="4">(150 ± 8 × 1.25%)/20/10 kV</td></tr>
+            <tr><th>VECTOR GROUP</th><td colspan="4">YNyn0(d)</td></tr>
+            <tr><th>TYPE OF COOLING</th><td colspan="4">ONAN/ONAF(60/100%)</td></tr>
+            <tr><th>TEMPERATURE-RISE LIMIT</th><td colspan="4">WINDING (55 K)/TOP OIL(50 K)</td></tr>
+            <tr><th>ALTITUDE</th><td colspan="4">BELOW 100 m</td></tr>
+            <tr><th rowspan="5">INSULATION LEVEL</th><th class="sub-header" colspan="2">H.V. LINE TERMINAL</th><td colspan="2">LI/AC 650/275 kV</td></tr>
+            <tr><th class="sub-header" colspan="2">H.V. NEUTRAL TERMINAL</th><td colspan="2">LI/AC 325/140 kV</td></tr>
+            <tr><th class="sub-header" colspan="2">L.V. LINE TERMINAL</th><td colspan="2">LI/AC 125/50 kV</td></tr>
+            <tr><th class="sub-header" colspan="2">L.V. NEUTRAL TERMINAL</th><td colspan="2">LI/AC 125/50 kV</td></tr>
+            <tr><th class="sub-header" colspan="2">W.V. LINE TERMINAL</th><td colspan="2">LI/AC 75/28 kV</td></tr>
+            <tr><th>TAP POSITION</th><th>HV (V)</th><th>LV (V)</th><th>POWER (MVA)</th><th>S.C. IMPEDANCE (%)</th></tr>
+            <tr><td>1</td><td>165000</td><td>20000</td><td>60</td><td>13.02</td></tr>
+            <tr><td>9</td><td>150000</td><td>20000</td><td>60</td><td>12.43</td></tr>
+            <tr><td>17</td><td>135000</td><td>20000</td><td>60</td><td>12.38</td></tr>
+            <tr><th class="sub-header" colspan="5"></th></tr>
+            <tr><th>OIL WEIGHT</th><td>23.9 t</td><th>WEIGHT OF UPPER TANK</th><td colspan="2">9.0 t</td></tr>
+            <tr><th>TOTAL WEIGHT</th><td>105 t</td><th>TRANSPORT WEIGHT WITH OIL</th><td colspan="2">82.6 t</td></tr>
+            <tr><th class="sub-header" colspan="5"></th></tr>
+            <tr><th colspan="5">HV WINDING</th></tr>
+            <tr><th class="sub-header">TAP POSITION</th><th class="sub-header" colspan="2">VOLTAGE (V)</th><th class="sub-header" colspan="2">CURRENT (A)</th></tr>
+            <tr><td>1</td><td colspan="2">165000</td><td colspan="2">209.9</td></tr>
+            <tr><td>2</td><td colspan="2">163125</td><td colspan="2">212.4</td></tr>
+            <tr><td>3</td><td colspan="2">161250</td><td colspan="2">214.8</td></tr>
+            <tr><td>4</td><td colspan="2">159375</td><td colspan="2">217.4</td></tr>
+            <tr><td>5</td><td colspan="2">157500</td><td colspan="2">219.9</td></tr>
+            <tr><td>6</td><td colspan="2">155625</td><td colspan="2">222.6</td></tr>
+            <tr><td>7</td><td colspan="2">153750</td><td colspan="2">225.3</td></tr>
+            <tr><td>8</td><td colspan="2">151875</td><td colspan="2">228.1</td></tr>
+            <tr><td>9A/9B/9C</td><td colspan="2">150000</td><td colspan="2">230.9</td></tr>
+            <tr><td>10</td><td colspan="2">148125</td><td colspan="2">233.9</td></tr>
+            <tr><td>11</td><td colspan="2">146250</td><td colspan="2">236.9</td></tr>
+            <tr><td>12</td><td colspan="2">144375</td><td colspan="2">239.9</td></tr>
+            <tr><td>13</td><td colspan="2">142500</td><td colspan="2">243.1</td></tr>
+            <tr><td>14</td><td colspan="2">140625</td><td colspan="2">246.3</td></tr>
+            <tr><td>15</td><td colspan="2">138750</td><td colspan="2">249.7</td></tr>
+            <tr><td>16</td><td colspan="2">136875</td><td colspan="2">253.1</td></tr>
+            <tr><td>17</td><td colspan="2">135000</td><td colspan="2">256.6</td></tr>
+            <tr><th colspan="5">LV WINDING</th></tr>
+            <tr><th class="sub-header" colspan="2">VOLTAGE (V)</th><th class="sub-header" colspan="3">CURRENT (A)</th></tr>
+            <tr><td colspan="2">20000</td><td colspan="3">1732.1</td></tr>
+            <tr><th colspan="5">STABILIZING WINDING</th></tr>
+            <tr><th class="sub-header" colspan="2">VOLTAGE (V)</th><th class="sub-header" colspan="3">CURRENT (A)</th></tr>
+            <tr><td colspan="2">10000</td><td colspan="3">1154.7</td></tr>
+        </table>
+
+        <!--<p><b>Status:</b> <span class="status-maintenance"><i class="fas fa-tools"></i> Dalam Pemeliharaan</span></p>
+        <p><b>Status:</b> <span class="status-fault"><i class="fas fa-exclamation-triangle"></i> Gangguan</span></p>-->
+
+        <div class="section-title">Status Peralatan</div>
+        <p><b>Status:</b> 
+            <span class="status-normal"><i class="fas fa-check-circle"></i> Normal</span>
+        </p>
+
+
+        <div class="section-title">Dokumen</div>
+        <a href="../../../index.html" class="button">
+            <i class="fas fa-house-chimney"></i> Home
+        </a>
+        <a href="manual.pdf" class="button">
+            <i class="fas fa-book"></i> Manual PDF
+        </a>
+        <a href="plate.jpeg" class="button">
+            <i class="fas fa-tools"></i> Foto Nameplate
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/16caD5gpEkRvSeS8xLM15cz7XW9QMX5NiEl9vejvdR6s/edit?gid=1609869660#gid=1609869660" class="button">
+            <i class="fas fa-check-circle"></i> Riwayat Pemeliharaan Bay
+        </a>
+    </div>
+</div>
+<script>
+function toggleMode() {
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    body.classList.toggle("dark-mode");
+
+    // Ubah ikon sesuai mode
+    if (body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️"; // Dark mode → tombol jadi matahari
+    } else {
+        toggleBtn.textContent = "🌙"; // Light mode → tombol jadi bulan
+    }
+}
+</script>
+
+</body>
+</html>
